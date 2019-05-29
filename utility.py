@@ -1,7 +1,9 @@
 import math
 
 def isSquare( N ):
-	x = N / 2
+	if N== 1:
+		return True
+	x = N // 2
 	seen = set([x])
 	while x * x != N:
 		x = (x+(N // x)) // 2
@@ -55,6 +57,24 @@ def getDivisors(M):
 			result.append(i)
                  
 	return result
+
+def getPrimeDivisors(M):
+	result=[]
+	primes = getPrimes(M)
+	for p in primes:
+		if M%p == 0:
+			result.append(p)
+	return result
+
+def getPrimeDivisors2(M, primes):
+        result=[]
+        for p in primes:
+                if p>M:
+                    return result
+                if M%p == 0:
+                        result.append(p)
+        return result
+
 
 def eular(M):
 	result=M

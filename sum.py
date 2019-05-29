@@ -7,16 +7,12 @@ def sums( N ):
 			yield x
 			x[0] = x[0]-1
 			x[1] = x[1]+1
+                for n in range (2, N):
+                        for sl in sums(n):
+                                if sl[0]<=N-n:
+                                        yield [N-n]+sl
 
-		last = 1
-		while True:
-                	for sl in sums(N-last):
-				x=sl+[last]
-				yield x
-			last = last +1
-					
-
-N=10
+N=1
 p=decimal.Decimal(0.0)+N*N*math.factorial(N-1)
 FACN = math.factorial(N)
 
